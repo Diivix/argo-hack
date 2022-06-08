@@ -17,7 +17,7 @@ spec:
         app: argo-hack
     spec:
       containers:
-      - image: ghcr.io/diivix/argo-hack
+      - image: ghcr.io/diivix/argo-hack:main
         name: argo-hack
         resources: {}
 status: {}
