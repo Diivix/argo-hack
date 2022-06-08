@@ -1,24 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-    ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  # annotations:
+  #   ingress.kubernetes.io/rewrite-target: /
+  #   ingress.kubernetes.io/ssl-redirect: 'false'
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+  #   nginx.ingress.kubernetes.io/ssl-redirect: 'false'
   name: argo-hack
   namespace: default
 spec:
   rules:
-  - host: argohack.dev
-    http:
-      paths:
-      - backend:
-          service:
-            name: argo-hack
-            port:
-              number: 80
-        path: /
-        pathType: ImplementationSpecific
+    - host: argohack.dev
+      http:
+        paths:
+          - backend:
+              service:
+                name: argo-hack
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
 status:
   loadBalancer: {}
