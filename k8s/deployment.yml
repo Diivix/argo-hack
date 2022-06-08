@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-hack
+  name: argo-hack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argo-hack
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: argo-hack
+    spec:
+      containers:
+      - image: ghcr.io/diivix/argo-hack
+        name: argo-hack
+        resources: {}
+status: {}
