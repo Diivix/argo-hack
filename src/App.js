@@ -23,7 +23,7 @@ function App() {
         <div className='App-info'>
           <p>Continuos Deployments with ArgoCD</p>
           <p>
-            You are viewing the <span color={envColor}>{envName.toLocaleUpperCase()} Environment</span>
+            You are viewing the <span color={envColor}>{envName.toLocaleUpperCase()} Environment!</span>
           </p>
         </div>
         <img src={envIcon} className="jump" alt="logo" width={200} height={200} />
