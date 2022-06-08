@@ -17,7 +17,7 @@ spec:
               service:
                 name: argo-hack
                 port:
-                  number: 80
+                  number: 443
             path: /
             pathType: Prefix
 status:
