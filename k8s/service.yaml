@@ -12,18 +12,18 @@ spec:
     app: argo-canary-prod
 status:
   loadBalancer: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: argo-canary-preview-service
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: argo-canary-preview
-status:
-  loadBalancer: {}
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: argo-canary-preview-service
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 80
+#     protocol: TCP
+#     targetPort: 80
+#   selector:
+#     app: argo-canary-preview
+# status:
+#   loadBalancer: {}
