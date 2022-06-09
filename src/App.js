@@ -25,6 +25,7 @@ function App() {
           <p>
             You are viewing the <span color={envColor}>{envName.toLocaleUpperCase()} Environment!</span>
           </p>
+          <p>FEATURE!!!</p>
         </div>
         <img src={envIcon} className="jump" alt="logo" width={200} height={200} />
       </header>
