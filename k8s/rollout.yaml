@@ -10,11 +10,11 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: argo-canary
+      app: argo-canary-prod
   template:
     metadata:
       labels:
-        app: argo-canary
+        app: argo-canary-prod
     spec:
       containers:
       - image: ghcr.io/diivix/argo-hack:feature-canary

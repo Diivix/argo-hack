@@ -3,9 +3,9 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: argo-canary
-    app.kubernetes.io/instance: argo-canary
-  name: argo-canary-service
+    app: argo-canary-prod
+    app.kubernetes.io/instance: argo-canary-prod
+  name: argo-canary-prod-service
 spec:
   type: LoadBalancer
   ports:
@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: argo-canary
+    app: argo-canary-prod
 status:
   loadBalancer: {}
 ---
@@ -23,7 +23,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: argo-canary-preview
-    app.kubernetes.io/instance: argo-canary
+    app.kubernetes.io/instance: argo-canary-preview
   name: argo-canary-preview-service
 spec:
   type: LoadBalancer
