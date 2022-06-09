@@ -3,6 +3,6 @@ kind: Kustomization
 namePrefix: kustomize-	
 resources:
   # - deployment.yaml
-  - rollout
+  - rollout.yaml
   - service.yaml
   # - ingress.yaml
