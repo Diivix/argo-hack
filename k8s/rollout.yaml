@@ -10,7 +10,7 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: argo-canary
+      app: argo-canary-rollout
   template:
     metadata:
       labels:
