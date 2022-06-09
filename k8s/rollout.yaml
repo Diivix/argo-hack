@@ -1,0 +1,42 @@
+# This example demonstrates how to deploy a preview ReplicaSet using an Experiment. The preview
+# ReplicaSet will run but receive no production traffic, since its selector labels are set
+# differently than the rollout's selector labels.
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: argo-canary-rollout
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: argo-canary
+  template:
+    metadata:
+      labels:
+        app: argo-canary
+    spec:
+      containers:
+      - image: ghcr.io/diivix/argo-hack:feature-canary
+        name: argo-canary
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+  strategy:
+    canary:
+      steps:
+      # The initial step starts an experiment that runs a single pod ReplicaSet using the new pod spec
+      # When the experiment is terminated, the rollout will progress through rest of the canary steps.
+      - experiment:
+          templates:
+          - name: argo-canary-preview
+            specRef: canary
+            # Selector and metadata are overwritten to be something different from the rollout's
+            # spec.selector. This allows the preview stack to be reachable through a different
+            # service without receiving production traffic.
+            selector:
+              matchLabels:
+                app: argo-canary-preview
+            metadata:
+              labels:
+                app: argo-canary-preview

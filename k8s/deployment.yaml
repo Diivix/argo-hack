@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: argo-hack
-  name: argo-hack
+    app: argo-canary
+  name: argo-canary
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: argo-hack
+      app: argo-canary
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: argo-hack
+        app: argo-canary
     spec:
       containers:
-      - image: ghcr.io/diivix/argo-hack:main
-        name: argo-hack
+      - image: ghcr.io/diivix/argo-hack:feature-canary
+        name: argo-canary
         resources: {}
 status: {}
