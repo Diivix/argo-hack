@@ -17,7 +17,7 @@ spec:
         app: argo-canary-prod
     spec:
       containers:
-      - image: ghcr.io/diivix/argo-hack:v0.1.0
+      - image: ghcr.io/diivix/argo-hack:v0.1.1
         name: argo-canary
         imagePullPolicy: Always
         ports:
