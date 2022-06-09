@@ -3,9 +3,9 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: argo-canary-service
+    app: argo-canary
     app.kubernetes.io/instance: argo-canary
-  name: argo-canary
+  name: argo-canary-service
 spec:
   type: LoadBalancer
   ports:
